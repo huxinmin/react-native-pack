@@ -1,5 +1,5 @@
 {
-  "name": "react-native-webpack",
+  "name": "react-native-pack",
   "version": "1.0.0",
   "description": "A Webpack-based toolkit to build your React Native application with full support of Webpack ecosystem.",
   "main": "dist/index.js",
@@ -17,8 +17,8 @@
     "!android/build",
     "!ios/build"
   ],
-  "homepage": "https://github.com/huxinmin/react-native-webpack",
-  "repository": "github:huxinmin/react-native-webpack",
+  "homepage": "https://github.com/huxinmin/react-native-pack",
+  "repository": "github:huxinmin/react-native-pack",
   "keywords": [
     "react-native",
     "react native",
@@ -37,7 +37,6 @@
     "access": "public"
   },
   "scripts": {
-    "prepare": "yarn build",
     "clean": "del dist",
     "build:js": "babel src --out-dir dist --extensions \".js,.ts\" --source-maps --ignore \"**/__tests__/**\"",
     "build:js:watch": "yarn build:js --watch",

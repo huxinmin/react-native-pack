@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppRegistry } from 'react-native';
-import { ChunkManager } from 'react-native-webpack/client';
+import { ChunkManager } from 'react-native-pack/client';
 import { name as appName } from './app.json';
 import App from './src/App';
 

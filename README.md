@@ -1,5 +1,7 @@
 ## Why
+
 metro is recommend to use with react-native, and integrate react-native out-of-box, but metro has some shortcomings:
+
 - the official documents is too brief to understand, let alone to customized or optimize performance
 - sometimes too slow
 - can't split code
@@ -12,13 +14,14 @@ so, I usually look forward to one way to use webpack in react-native,yeh, it com
 inspired by [repack](https://github.com/callstack/repack), I make some progress for more easy using and high speed.
 
 # Intro
+
 <p align="center">
 A Webpack-based toolkit to build your React Native application with full support of Webpack ecosystem.
 </p>
 
 ---
 
-react-native-webpack uses Webpack 5 and React Native CLI's plugin system to allow you to bundle your application using Webpack and allow to easily switch from Metro.
+react-native-pack uses Webpack 5 and React Native CLI's plugin system to allow you to bundle your application using Webpack and allow to easily switch from Metro.
 
 ## Features
 
@@ -48,31 +51,39 @@ react-native-webpack uses Webpack 5 and React Native CLI's plugin system to allo
 - [x] Web Dashboard with compilation status, server logs and artifacts.
 
 # Minimum requirements
+
 ```
 react-native >= 0.62.0
 Node >= 12
 ```
 
 ## Useage
+
 ```sh
-yarn add -D react-native-webpack
+yarn add -D react-native-pack
 ```
+
 Add the following content to react-native.config.js (or create it if it doesn't exist):
+
 ```
 module.exports = {
-  commands: require('react-native-webpack/repack/commands')
+  commands: require('react-native-pack/repack/commands')
 };
 ```
+
 open `project.pbxproj` and find `Bundle React Native code and images phase`, Add `export BUNDLE_COMMAND=webpack-bundle` to the phase.
 After the change, the content of this phase should look similar to:
+
 ```sh
 export NODE_BINARY=node
 export BUNDLE_COMMAND=webpack-bundle
 ../node_modules/react-native/scripts/react-native-xcode.sh
 ```
+
 open `android/app/build.gradle` and radle and add bundleCommand: `webpack-bundle` to `project.ext.react`.
 
 everything is done. then you can use:
+
 ```sh
 react-native webpack-start
 # or
@@ -80,7 +91,9 @@ react-native webpack-bundle
 ```
 
 # Code splitting
-react-native-webpack use webpack splitchunks to split code as default:
+
+react-native-pack use webpack splitchunks to split code as default:
+
 ```sh
 splitChunks: {
       chunks: 'async',
@@ -104,7 +117,9 @@ splitChunks: {
       },
     }
 ```
+
 but you can customize as you need.
+
 ```sh
 // StudentSide.js
 import * as React from 'react';
@@ -120,6 +135,7 @@ export default function StudentSide({ user }) {
   )
 }
 ```
+
 ```sh
 // TeacherSide.js
 import * as React from 'react';
@@ -135,6 +151,7 @@ export default function TeacherSide({ user }) {
   )
 }
 ```
+
 ```sh
 // Home.js
 import * as React from 'react';
@@ -163,6 +180,7 @@ export function Home({ user }) {
   )
 }
 ```
+
 ```sh
 // index.js
 import { AppRegistry } from 'react-native';
@@ -186,7 +204,6 @@ ChunkManager.configure({
 
 AppRegistry.registerComponent(appName, () => App);
 ```
-
 
 ## TodoList
 

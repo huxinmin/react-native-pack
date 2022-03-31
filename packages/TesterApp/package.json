@@ -21,7 +21,7 @@
     "webpack": "PLATFORM=ios webpack"
   },
   "dependencies": {
-    "react-native-webpack": "^1.0.0",
+    "react-native-pack": "^1.0.0",
     "@react-native-async-storage/async-storage": "^1.15.4",
     "lodash.throttle": "^4.1.1",
     "react": "17.0.1",

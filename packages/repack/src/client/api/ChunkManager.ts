@@ -18,7 +18,7 @@ import { ChunkManagerConfig } from './types';
  * Example of using this API with async chunks:
  * ```js
  * import * as React from 'react';
- * import { ChunkManager } from 'react-native-webpack/client';
+ * import { ChunkManager } from 'react-native-pack/client';
  *
  * ChunkManager.configure({
  *   resolveRemoteChunk: async (chunkId) => {
