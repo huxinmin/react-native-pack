@@ -1,3 +1,3 @@
 module.exports = {
-  commands: require('react-native-pack/commands'),
+  commands: require('rn-fast-pack/commands'),
 };

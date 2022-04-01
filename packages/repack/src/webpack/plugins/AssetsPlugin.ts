@@ -35,7 +35,7 @@ export interface AssetsPluginConfig extends AssetResolverConfig {
  * Assets processing in React Native differs from Web, Node.js or other targets. This plugin allows
  * you to use assets in the same way as you would do when using Metro.
  *
- * @deprecated Use dedicated rule with `react-native-pack/assets-loader` and `AssetsResolverPlugin`.
+ * @deprecated Use dedicated rule with `rn-fast-pack/assets-loader` and `AssetsResolverPlugin`.
  * More information can be found here: https://github.com/callstack/repack/pull/81
  *
  * @category Webpack Plugin

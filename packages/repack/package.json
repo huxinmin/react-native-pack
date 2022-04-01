@@ -1,7 +1,7 @@
 {
-  "name": "react-native-pack",
+  "name": "rn-fast-pack",
   "version": "1.0.0",
-  "description": "A Webpack-based toolkit to build your React Native application with full support of Webpack ecosystem.",
+  "description": "speed up react-natvie packing time. A Webpack-based toolkit to build your React Native application with full support of Webpack ecosystem.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "react-native": "",
@@ -17,8 +17,8 @@
     "!android/build",
     "!ios/build"
   ],
-  "homepage": "https://github.com/huxinmin/react-native-pack",
-  "repository": "github:huxinmin/react-native-pack",
+  "homepage": "https://github.com/huxinmin/rn-fast-pack",
+  "repository": "github:huxinmin/rn-fast-pack",
   "keywords": [
     "react-native",
     "react native",

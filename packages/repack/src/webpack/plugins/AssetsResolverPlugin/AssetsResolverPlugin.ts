@@ -12,7 +12,7 @@ export interface AssetsResolverPluginConfig extends AssetResolverConfig {}
  * Plugin for resolving assets (images, audio, video etc) for React Native applications.
  *
  * Assets processing in React Native differs from Web, Node.js or other targets.
- * This plugin in combination with `react-native-pack/assets-loader` allows
+ * This plugin in combination with `rn-fast-pack/assets-loader` allows
  * you to use assets in the same way as you would do when using Metro.
  *
  * @category Webpack Plugin

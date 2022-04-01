@@ -200,7 +200,7 @@ module.exports = {
           ReactNativeWebpack.ASSET_EXTENSIONS
         ),
         use: {
-          loader: 'react-native-pack/assets-loader',
+          loader: 'rn-fast-pack/assets-loader',
           options: {
             platform,
             devServerEnabled: devServer.enabled,

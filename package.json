@@ -14,7 +14,7 @@
     "lint": "yarn workspaces run lint",
     "tsc": "yarn workspaces run tsc",
     "test": "yarn workspaces run test",
-    "release": "yarn prepare && cp README.md packages/repack && yarn workspace react-native-pack run release",
+    "release": "yarn prepare && cp README.md packages/repack && yarn workspace rn-fast-pack run release",
     "example:start": "yarn workspace TesterApp run start",
     "example:bundle": "yarn workspace TesterApp run bundle"
   }

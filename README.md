@@ -21,7 +21,7 @@ A Webpack-based toolkit to build your React Native application with full support
 
 ---
 
-react-native-pack uses Webpack 5 and React Native CLI's plugin system to allow you to bundle your application using Webpack and allow to easily switch from Metro.
+rn-fast-pack uses Webpack 5 and React Native CLI's plugin system to allow you to bundle your application using Webpack and allow to easily switch from Metro.
 
 ## Features
 
@@ -60,14 +60,14 @@ Node >= 12
 ## Useage
 
 ```sh
-yarn add -D react-native-pack
+yarn add -D rn-fast-pack
 ```
 
 Add the following content to react-native.config.js (or create it if it doesn't exist):
 
 ```
 module.exports = {
-  commands: require('react-native-pack/repack/commands')
+  commands: require('rn-fast-pack/repack/commands')
 };
 ```
 
@@ -92,7 +92,7 @@ react-native webpack-bundle
 
 # Code splitting
 
-react-native-pack use webpack splitchunks to split code as default:
+rn-fast-pack use webpack splitchunks to split code as default:
 
 ```sh
 splitChunks: {
