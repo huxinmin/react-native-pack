@@ -1,5 +1,4 @@
 const path = require('path');
-const fs = require('fs');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const ReactNativeWebpack = require('./index');
@@ -164,6 +163,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             root: context,
+            cacheDirectory: true,
           },
         },
       },
@@ -182,6 +182,7 @@ module.exports = {
             /** Add React Refresh transform only when HMR is enabled. */
             plugins: devServer.hmr ? ['module:react-refresh/babel'] : undefined,
             root: context,
+            cacheDirectory: true,
           },
         },
       },
@@ -269,33 +270,18 @@ module.exports = {
      * Wrong options might cause symbolication of stack trace inside React Native app
      * to fail - the app will still work, but you might not get Source Map support.
      */
-    new webpack.SourceMapDevToolPlugin({
-      test: /\.(js)?bundle$/,
-      exclude: /\.chunk\.(js)?bundle$/,
-      filename: '[file].map',
-      append: `//# sourceMappingURL=[url]?platform=${platform}`,
-      /**
-       * Uncomment for faster builds but less accurate Source Maps
-       */
-      // columns: false,
-    }),
-
-    /**
-     * Configures Source Maps for any additional chunks.
-     * It's recommended to leave the default values, unless you know what you're doing.
-     * Wrong options might cause symbolication of stack trace inside React Native app
-     * to fail - the app will still work, but you might not get Source Map support.
-     */
-    new webpack.SourceMapDevToolPlugin({
-      test: /\.(js)?bundle$/,
-      include: /\.chunk\.(js)?bundle$/,
-      filename: '[file].map',
-      append: `//# sourceMappingURL=[url]?platform=${platform}`,
-      /**
-       * Uncomment for faster builds but less accurate Source Maps
-       */
-      // columns: false,
-    }),
+    dev
+      ? new webpack.SourceMapDevToolPlugin({
+        test: /\.(js)?bundle$/,
+        exclude: /\.chunk\.(js)?bundle$/,
+        filename: '[file].map',
+        append: `//# sourceMappingURL=[url]?platform=${platform}`,
+        /**
+         * Uncomment for faster builds but less accurate Source Maps
+         */
+        // columns: false,
+      })
+      : null,
 
     /**
      * Logs messages and progress.
