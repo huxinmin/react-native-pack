@@ -83,6 +83,7 @@ module.exports = {
     alias: {
       'react-native': reactNativePath,
       '@babel/runtime': path.join(__dirname, '../node_modules/@babel/runtime'),
+      'react-dom': reactNativePath,
     },
   },
   /**
@@ -144,15 +145,13 @@ module.exports = {
      */
     rules: [
       {
-        test: /\.[jt]sx?$/,
+        test: /\.(js|mjs|jsx|ts|tsx)$/,
         include: [
           /node_modules(.*[/\\])+react/,
           /node_modules(.*[/\\])+@react-native/,
           /node_modules(.*[/\\])+@react-navigation/,
           /node_modules(.*[/\\])+@react-native-community/,
-          /node_modules(.*[/\\])+@expo/,
           /node_modules(.*[/\\])+pretty-format/,
-          /node_modules(.*[/\\])+metro/,
           /node_modules(.*[/\\])+abort-controller/,
           /node_modules(.*[/\\])+@callstack[/\\]repack/,
           /node_modules(.*[/\\])+@wanmi/,
@@ -174,7 +173,7 @@ module.exports = {
        * https://github.com/babel/babel-loader#options
        */
       {
-        test: /\.[jt]sx?$/,
+        test: /\.(js|mjs|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',

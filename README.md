@@ -67,7 +67,7 @@ Add the following content to react-native.config.js (or create it if it doesn't 
 
 ```
 module.exports = {
-  commands: require('rn-fast-pack/repack/commands')
+  commands: require('rn-fast-pack/commands')
 };
 ```
 
@@ -80,14 +80,28 @@ export BUNDLE_COMMAND=webpack-bundle
 ../node_modules/react-native/scripts/react-native-xcode.sh
 ```
 
-open `android/app/build.gradle` and radle and add bundleCommand: `webpack-bundle` to `project.ext.react`.
+open `android/app/build.gradle` and add bundleCommand: `webpack-bundle` to `project.ext.react`.
+
+```
+project.ext.react = [
+    enableHermes: false,
+    bundleCommand: "webpack-bundle"
+]
+```
+
+then you can creat one new webpack.config.js
+
+```
+// can be empty
+module.exports = {}
+```
 
 everything is done. then you can use:
 
 ```sh
-react-native webpack-start
+react-native webpack-start --webpackConfig webpack.config.js
 # or
-react-native webpack-bundle
+react-native webpack-bundle --webpackConfig webpack.config.js
 ```
 
 # Code splitting
