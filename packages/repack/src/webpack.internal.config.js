@@ -96,7 +96,7 @@ module.exports = {
   output: {
     clean: true,
     path: path.join(context, 'build', platform),
-    filename: 'index.bundle',
+    filename: `index.${platform}.bundle`,
     chunkFilename: '[name].chunk.bundle',
     publicPath: ReactNativeWebpack.getPublicPath(devServer),
   },
@@ -299,5 +299,5 @@ module.exports = {
         // file: path.join(__dirname, `${mode}.${platform}.log`),
       },
     }),
-  ],
+  ].filter(Boolean),
 };

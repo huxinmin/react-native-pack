@@ -37,10 +37,27 @@ const {
 } = require(`${getReactNativeCliPath()}/commands`);
 
 const startCommand = cliCommands.find((command) => command.name === 'start');
+
+// transform required to optinal
+const startCommandOptions = startCommand.options.map(({ name, ...rest }) => {
+  return {
+    name: name.replace('<', '[').replace('>', ']'),
+    ...rest,
+  };
+});
+
 const bundleCommand = cliCommands.find((command) => command.name === 'bundle');
 
+// transform required to optinal
+const bundleCommandOptions = bundleCommand.options.map(({ name, ...rest }) => {
+  return {
+    name: name.replace('<', '[').replace('>', ']'),
+    ...rest,
+  };
+});
+
 const webpackConfigOption = {
-  name: '--webpackConfig <path>',
+  name: '--webpackConfig [path]',
   description: 'Path to a Webpack config',
   parse: (val) => path.resolve(val),
   default: (config) => {
@@ -60,7 +77,7 @@ module.exports = [
   {
     name: 'webpack-bundle',
     description: bundleCommand.description,
-    options: bundleCommand.options.concat(
+    options: bundleCommandOptions.concat(
       {
         name: '--verbose',
         description: 'Enables verbose logging',
@@ -71,7 +88,7 @@ module.exports = [
   },
   {
     name: 'webpack-start',
-    options: startCommand.options.concat(webpackConfigOption),
+    options: startCommandOptions.concat(webpackConfigOption),
     description: startCommand.description,
     func: require('./dist/commands/start').start,
   },

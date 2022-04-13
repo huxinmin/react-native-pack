@@ -89,7 +89,7 @@ project.ext.react = [
 ]
 ```
 
-then you can creat one new webpack.config.js
+then you can create one new webpack.config.js(optional)
 
 ```
 // can be empty
@@ -99,9 +99,36 @@ module.exports = {}
 everything is done. then you can use:
 
 ```sh
-react-native webpack-start --webpackConfig webpack.config.js
+react-native webpack-start
 # or
-react-native webpack-bundle --webpackConfig webpack.config.js
+react-native webpack-bundle
+```
+
+if you want to use back to metro in case, you can set package.json scripts as blow:
+
+```sh
+"start:webpack": "react-native webpack-start",
+"start:metro": "react-native start",
+"bundle:metro:ios": "react-native bundle --entry-file index.ios.js --platform ios --dev false --bundle-output ./ios/main.jsbundle --assets-dest ./ios"
+"bundle:webpack:ios": "react-native webpack-bundle --entry-file index.ios.js --platform ios --dev false --bundle-output ./ios/main.jsbundle --assets-dest ./ios"
+```
+
+# Attention
+
+react-native 0.62 bundle name is index.android.bundle or index.ios.bundle, but from 0.63 has changed into index.bundle. you can customize it by setting webpack config:
+
+```sh
+react-native webpack-start --webpackPath ...
+```
+
+your webpack.config.js looks like:
+
+```sh
+module.exports = {
+  output: {
+    filename: `index.${platform}.bundle`, // index.bundle
+  },
+}
 ```
 
 # Code splitting
@@ -227,3 +254,5 @@ AppRegistry.registerComponent(appName, () => App);
 - [ ] android optimize
 - [ ] ios optimize
 - [ ] local or remote chunk switch easily
+- [ ] switch back to metro easily
+- [ ] tar/zip replace resource

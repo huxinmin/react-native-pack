@@ -1,6 +1,6 @@
 {
   "name": "rn-fast-pack",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "speed up react-natvie packing time. A Webpack-based toolkit to build your React Native application with full support of Webpack ecosystem.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
